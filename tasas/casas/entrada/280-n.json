@@ -1,40 +1,37 @@
-[
+[{
+        "viajes_h_por_vivienda": 0.69,
+        "transporte_privado": 0.380,
+        "transporte_publico": 0.103,
+        "peatones_viajes": 0.103,
+        "ciclos_viajes": 0.028
+    },
     {
-       "Periodos":{
-         "PM-L":{
-            "viajes_h_por_vivienda": "0,1",
-            "transporte_privado": "0,005",
-            "transporte_publico": "0,045",
-            "peatones_viajes": "0,045",
-            "ciclos_viajes": "0,004"
-         },
-          "PMd-L":{
-             "viajes_h_por_vivienda": "0.1",
-             "transporte_privado": "0,005",
-             "transporte_publico": "0,045",
-             "peatones_viajes": "0,045",
-             "ciclos_viajes": "0,004"
-          },
-          "PT-L":{
-             "transporte_privado": "0,005",
-             "transporte_publico": "0,045",
-             "peatones_viajes": "0,045",
-             "ciclos_viajes": "0,004"
-          },
-          "PMd-F":{
-             "viajes_h_por_vivienda": "0,1",
-             "transporte_privado": "0,005",
-             "transporte_publico": "0,045",
-             "peatones_viajes": "0,045",
-             "ciclos_viajes": "0,004"
-          },
-          "PT-F":{
-             "viajes_h_por_vivienda": "0,1",
-             "transporte_privado": "0,005",
-             "transporte_publico": "0,045",
-             "peatones_viajes": "0,045",
-             "ciclos_viajes": "0,004"
-          }
-       }    
+        "viajes_h_por_vivienda": 0.69,
+        "transporte_privado": 0.380,
+        "transporte_publico": 0.103,
+        "peatones_viajes": 0.103,
+        "ciclos_viajes": 0.028
+    },
+    {
+        "viajes_h_por_vivienda": 3.44,
+        "transporte_privado": 1.900,
+        "transporte_publico": 0.511,
+        "peatones_viajes": 0.511,
+        "ciclos_viajes": 0.138
+    },
+    {
+        "viajes_h_por_vivienda": 0.69,
+        "transporte_privado": 0.380,
+        "transporte_publico": 0.103,
+        "peatones_viajes": 0.103,
+        "ciclos_viajes": 0.028
+    },
+    {
+        "viajes_h_por_vivienda": 0.69,
+        "transporte_privado": 0.380,
+        "transporte_publico": 0.103,
+        "peatones_viajes": 0.103,
+        "ciclos_viajes": 0.028
     }
- ]
+
+]

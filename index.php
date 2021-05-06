@@ -22,7 +22,7 @@ header('Access-Control-Allow-Origin: *');
                 <h2>Calculo IMIV</h2>
                 <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan nec nunc et semper. Maecenas pellentesque maximus dolor vitae posuere. Vivamus turpis lectus, molestie vel erat vitae, semper rutrum libero. </p>
             </div>
-            <div class="py-5">
+            <div class="">
                 <h6>Conceptos</h6>
                     PM-L = Punta Mañana Laboral <br>
                     PMd-L = Punta Medio dia Laboral <br>
@@ -55,91 +55,17 @@ header('Access-Control-Allow-Origin: *');
                         <option value="servicios">Servicios</option>
                         <option value="social">Social</option>
                     </select>
-                    <button class="btn btn-success"> + </button>
                 </div>
                 
           </div>
-          <div class="row g-3">
+          <div id="formulario" class="row">
           
-          
-            
-            <div class="col-md-4">
-              <strong>Menor a 50m2</strong>
-            </div>
-            <input type="text" class="form-control" name="rango_sup[]" value="1_50" >
-            <div class="col-md-4">
-              <label for="superficie" class="form-label"><strong>Superficie M2</strong></label>
-              <input type="text" class="form-control" name="superficies[]" id="superficie"  required>
-            </div>
-            <div class="col-md-4">
-              <label for="cantidad" class="form-label"><strong>Cantidad Construida</strong></label>
-              <input type="text" class="form-control" name="cantidades[]" id="cantidad"  required>
-            </div>
-
-            <div class="col-md-4">
-              <strong>51m2 a 60m2</strong>
-            </div>
-            <input type="text" class="form-control" name="rango_sup[]" value="51_60" >
-            <div class="col-md-4">
-              <label for="superficie" class="form-label"><strong>Superficie M2</strong></label>
-              <input type="text" class="form-control" name="superficies[]" id="superficie"  required>
-            </div>
-            <div class="col-md-4">
-              <label for="cantidad" class="form-label"><strong>Cantidad Construida</strong></label>
-              <input type="text" class="form-control" name="cantidades[]" id="cantidad"  required>
-            </div>
-
-            <div class="col-md-4">
-              <strong>61m2 a 140m2</strong>
-            </div>
-            <input type="text" class="form-control" name="rango_sup[]" value="61_140">
-            <div class="col-md-4">
-              <label for="superficie" class="form-label"><strong>Superficie M2</strong></label>
-              <input type="text" class="form-control" name="superficies[]" id="superficie"  required>
-            </div>
-            <div class="col-md-4">
-              <label for="cantidad" class="form-label"><strong>Cantidad Construida</strong></label>
-              <input type="text" class="form-control" name="cantidades[]" id="cantidad"  required>
-            </div>
-
-            <div class="col-md-4">
-              <strong>141m2 a 280m2</strong>
-            </div>
-            <input type="text" class="form-control" name="rango_sup[]" value="141_280">
-            <div class="col-md-4">
-              <label for="superficie" class="form-label"><strong>Superficie M2</strong></label>
-              <input type="text" class="form-control" name="superficies[]" id="superficie"  required>
-            </div>
-            <div class="col-md-4">
-              <label for="cantidad" class="form-label"><strong>Cantidad Construida</strong></label>
-              <input type="text" class="form-control" name="cantidades[]" id="cantidad"  required>
-            </div>
-
-            <div class="col-md-4">
-              <strong>281 o mas</strong>
-            </div>
-            <input type="text" class="form-control" name="rango_sup[]" value="281_n">
-            <div class="col-md-4">
-              <label for="superficie" class="form-label"><strong>Superficie M2</strong></label>
-              <input type="text" class="form-control" name="superficies[]" id="superficie"  required>
-            </div>
-            <div class="col-md-4">
-              <label for="cantidad" class="form-label"><strong>Cantidad Construida</strong></label>
-              <input type="text" class="form-control" name="cantidades[]" id="cantidad"  required>
-            </div>
-
-           
           </div>
 
           <hr class="my-4">
-
           <button type="subit" class="w-100 btn btn-primary btn-lg" >Calcular</button>
         </form>
       </div>
-    </div>
-
-    <div id="resultados">
-        Resultados
     </div>
   </main>
 
@@ -152,9 +78,7 @@ header('Access-Control-Allow-Origin: *');
     </ul>
   </footer>
 </div>
-      
-      <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-      <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
       <script src="app.js"></script>
     </body>
 </html>

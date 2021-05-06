@@ -1,0 +1,22 @@
+<div class="col-md-12">
+    <hr>
+</div>
+
+<div class="col-md-4">
+    <label for="tipo" class="form-label"><strong>Rango m<sup>2</sup></strong></label>
+    <select class="form-select" name="rango_sup[]" required>
+        <option value="1_50"> Menor a 50m2</option>
+        <option value="51_60"> 51m2 a 60m2</option>
+        <option value="61_140"> 61m2 a 140m2</option>
+        <option value="141_280"> 141m2 a 280m2 </option>
+        <option value="281_n"> 281 o mas</option>
+    </select>
+</div>
+<div class="col-md-4">
+    <label for="superficie" class="form-label"><strong>Superficie m<sup>2</sup></strong> (unitaria)</strong></label>
+    <input type="text" class="form-control" name="superficies[]" id="superficie" required>
+</div>
+<div class="col-md-4">
+    <label for="cantidad" class="form-label"><strong>Cantidad Construida</strong></label>
+    <input type="text" class="form-control" name="cantidades[]" id="cantidad" required>
+</div>

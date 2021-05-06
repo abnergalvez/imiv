@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -37,120 +37,44 @@
 <div class="container">
   <main>
     <div class="py-5 text-center">
-      <h2>Calculo IMIV</h2>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan nec nunc et semper. Maecenas pellentesque maximus dolor vitae posuere. Vivamus turpis lectus, molestie vel erat vitae, semper rutrum libero. </p>
+      <h2>Calculo IMIV - Resultado</h2>
     </div>
 
     <div class="row g-5">
-      <div class="col-md-7 col-lg-12">
-        <h4 class="mb-3"> Resultados</h4>
-        Segun: <br>
-        <ul>
-        <li>Tipo Contruccion/Vivienda: <strong><?php echo $_GET["tipo"]; ?></strong></li>
-        <li>Superficie: <strong><?php echo $_GET["superficie"]; ?>M <sup>2  </sup> </strong> </li>
-        <li>Cantidad: <strong><?php echo $_GET["cantidad"]; ?> </li>
-      </ul>
-        <hr>
-        <h6>Transporte Privado Vehiculos/Hora</h6>
-        <table class="table table-hover">
+        <strong>FLUJO DE ENTRADA PARA <?php  echo $_SESSION['cantidad']; ?> 
+        VIVIENDAS DE <?php  echo $_SESSION['superficie']; ?> MT<sup>2</sup></strong>
+        <table class="table table-hover table-sm">
           <thead>
-            <tr>
-              <th scope="col">Viajes Generados Entrada (periodo1)</th>
-              <th scope="col">Viajes Generados Salida (periodo1)</th>
-              <th scope="col">Viajes Generados Entrada (periodo2)</th>
-              <th scope="col">Viajes Generados Salida (periodo2)</th>
-              <th scope="col">Viajes Generados n° (tipo) Entrada (periodo1)</th>
-              <th scope="col">Viajes Generados n° (tipo) Salida (periodo1)</th>
-              <th scope="col">Viajes Generados n° (tipo) Entrada (periodo2)</th>
-              <th scope="col">Viajes Generados n° (tipo) Salida (periodo2)</th>
-              <th scope="col">Vehiculos/Hora periodo1 Entrada</th>
-              <th scope="col">Vehiculos/Hora periodo1 Salida</th>
-              <th scope="col">Vehiculos/Hora periodo2 Entrada</th>
-              <th scope="col">Vehiculos/Hora periodo2 Salida</th>
+            <tr> 
+              <th scope="col">Periodos</th>
+              <th scope="col">Totales </th>
+              <th scope="col">Autos </th>
+              <th scope="col">T. Publico </th>
+              <th scope="col">Peatones </th>
+              <th scope="col">Ciclos </th>
             </tr>
           </thead>
           <tbody>
+            <?php
+             $periodos = array("PM-L", "PMd-L", "PT-L", "PMd-F","PT-F"); 
+             foreach ($_SESSION['resultado_entradas'] as $key => $value) { 
+            ?>
             <tr>
-              <th scope="row">1</th>
-              
-              <td>1</td>
-              <td>0,3</td>
-              <td>0,3</td>
-              <td>0,3</td>
-              <td>0,3</td>
-              <td>0,3</td>
-              <td>0,3</td>
-              <td>0,3</td>
-              <td>0,3</td>
-              <td>0,3</td>
-              <td>0,3</td>
+              <td><?php  echo $periodos[$key]; ?></td>
+              <td><?php  echo $value["viajes_h_por_vivienda"];  ?></td>
+              <td><?php  echo $value["transporte_privado"];         ?></td>
+              <td><?php  echo $value["transporte_publico"];         ?></td>
+              <td><?php  echo $value["peatones_viajes"];         ?></td>
+              <td><?php  echo $value["ciclos_viajes"];         ?></td>
             </tr>
-
+            <?php
+             }
+            ?>
+            
           </tbody>
         </table>
 
-        <h6>Transporte Publico Viajes/Hora</h6>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h6>Peatones Viajes/Hora</h6>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
-          <a href="index.html" class="w-20 btn btn-secondary btn-lg" >Volver</a>
+          <a href="index.php" class="w-20 btn btn-secondary btn-lg" >Volver</a>
         </form>
       </div>
     </div>
@@ -172,3 +96,6 @@
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
   </body>
 </html>
+<?php
+session_destroy();
+?>
