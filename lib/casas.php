@@ -11,10 +11,10 @@ session_start();
 
 define('FACTOR_AP',   1.2 );  //Auto Privado
 
-function calculo_casas($rangos,$superficies,$cantidades)
+function calculo_casas($superficies,$cantidades)
 {
-    $resultado_entradas = [];
-    $resultado_salidas = [];
+    $entrada_resultado = [];
+    $salida_resultado = [];
 
     //var_dump($rangos);
     foreach ($superficies as $key => $value) {
@@ -60,14 +60,46 @@ function calculo_casas($rangos,$superficies,$cantidades)
         $salida_resultado[$key] = salida_casas($PML_salida,$items_salida,$rango,$cantidades[$key]);
 
     }
-    print("<pre>".print_r($entrada_resultado,true)."</pre>");
-    print("<pre>".print_r($salida_resultado,true)."</pre>");
-    //var_dump($entrada_resultado);
-   // $_SESSION['resultado_entradas'] = $resultado_entradas;
-   // $_SESSION['cantidad'] = $cantidades[0];
-   // $_SESSION['superficie'] = $superficies[0];
-   // header("Location: resultado.php"); 
+    //print("<pre>".print_r(sum_entradas($entrada_resultado),true)."</pre>");
+    //print("<pre>".print_r($salida_resultado,true)."</pre>");
+    
+    $_SESSION['resultado_entradas'] = sum_flujos($entrada_resultado);
+    $_SESSION['resultado_salidas'] = sum_flujos($salida_resultado);
+    $_SESSION['cantidades'] = $cantidades;
+    $_SESSION['superficies'] = $superficies;
+    header("Location: resultado.php"); 
 }
+
+function sum_flujos($flujos){
+    $final = array();
+
+    foreach ($flujos as $key1 => $values) {
+        
+        if($key1 == 0){
+            foreach ($values as $key2 => $val) {    
+                $final[$key2]["viajes_h_por_vivienda"] =  $val["viajes_h_por_vivienda"];
+                $final[$key2]["transporte_privado"] = $val["transporte_privado"]  ;
+                $final[$key2]["transporte_publico"] = $val["transporte_publico"];
+                $final[$key2]["peatones_viajes"] = $val["peatones_viajes"] ;
+                $final[$key2]["ciclos_viajes"] = $val["ciclos_viajes"];  
+            }
+        }else{
+            foreach ($values as $key2 => $val) {    
+                $final[$key2]["viajes_h_por_vivienda"] = $final[$key2]["viajes_h_por_vivienda"] + $val["viajes_h_por_vivienda"];
+                $final[$key2]["transporte_privado"] = $final[$key2]["transporte_privado"] + $val["transporte_privado"]  ;
+                $final[$key2]["transporte_publico"] = $final[$key2]["transporte_publico"] + $val["transporte_publico"];
+                $final[$key2]["peatones_viajes"] = $final[$key2]["peatones_viajes"] + $val["peatones_viajes"] ;
+                $final[$key2]["ciclos_viajes"] = $final[$key2]["ciclos_viajes"] + $val["ciclos_viajes"];  
+            }
+        }
+
+    }
+
+    return $final;
+}
+
+
+
 
 function superficie_rango($superficie)
 {

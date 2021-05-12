@@ -39,10 +39,15 @@
     <div class="py-5 text-center">
       <h2>Calculo IMIV - Resultado</h2>
     </div>
-
+    <strong>SUMATORIA FLUJO DE ENTRADA PARA:</strong> 
+    <ul>
+    <?php foreach ($_SESSION['superficies'] as $key => $value) { ?> 
+        
+          <li>  <?php  echo $_SESSION['cantidades'][$key]; ?> 
+                VIVIENDAS DE <?php  echo $value; ?> MT<sup>2</sup></li> 
+            <?php } ?> </ul>
     <div class="row g-5">
-        <strong>FLUJO DE ENTRADA PARA <?php  echo $_SESSION['cantidad']; ?> 
-        VIVIENDAS DE <?php  echo $_SESSION['superficie']; ?> MT<sup>2</sup></strong>
+
         <table class="table table-hover table-sm">
           <thead>
             <tr> 
@@ -73,11 +78,51 @@
             
           </tbody>
         </table>
+    </div>
+
+    <strong>SUMATORIA FLUJO DE SALIDA PARA:</strong> 
+    <ul>
+    <?php foreach ($_SESSION['superficies'] as $key => $value) { ?> 
+        
+          <li>  <?php  echo $_SESSION['cantidades'][$key]; ?> 
+                VIVIENDAS DE <?php  echo $value; ?> MT<sup>2</sup></li> 
+            <?php } ?> </ul>
+    <div class="row g-5">
+
+        <table class="table table-hover table-sm">
+          <thead>
+            <tr> 
+              <th scope="col">Periodos</th>
+              <th scope="col">Totales </th>
+              <th scope="col">Autos </th>
+              <th scope="col">T. Publico </th>
+              <th scope="col">Peatones </th>
+              <th scope="col">Ciclos </th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+             $periodos = array("PM-L", "PMd-L", "PT-L", "PMd-F","PT-F"); 
+             foreach ($_SESSION['resultado_salidas'] as $key => $value) { 
+            ?>
+            <tr>
+              <td><?php  echo $periodos[$key]; ?></td>
+              <td><?php  echo $value["viajes_h_por_vivienda"];  ?></td>
+              <td><?php  echo $value["transporte_privado"];         ?></td>
+              <td><?php  echo $value["transporte_publico"];         ?></td>
+              <td><?php  echo $value["peatones_viajes"];         ?></td>
+              <td><?php  echo $value["ciclos_viajes"];         ?></td>
+            </tr>
+            <?php
+             }
+            ?>
+            
+          </tbody>
+        </table>
 
           <a href="index.php" class="w-20 btn btn-secondary btn-lg" >Volver</a>
-        </form>
-      </div>
     </div>
+
   </main>
 
   <footer class="my-5 pt-5 text-muted text-center text-small">
