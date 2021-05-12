@@ -17,8 +17,9 @@ function calculo_casas($rangos,$superficies,$cantidades)
     $resultado_salidas = [];
 
     //var_dump($rangos);
-    foreach ($rangos as $key => $value) {
-        switch ($value) {
+    foreach ($superficies as $key => $value) {
+        $rango = superficie_rango($value);
+        switch ($rango) {
             case '1_50':
                 $PTL_entrada = 1;
                 $PML_salida = 1;
@@ -26,22 +27,22 @@ function calculo_casas($rangos,$superficies,$cantidades)
                 $items_salida = json_decode( stripslashes(file_get_contents("tasas/casas/salida/0-50.json")) , true);
                 break;
             case '51_60':
-                $PTL_entrada = 1+(0.02*(intval($superficies[$key])-50));
-                $PML_salida = 1+(0.02*(intval($superficies[$key])-50));
+                $PTL_entrada = 1+(0.02*(intval($value)-50));
+                $PML_salida = 1+(0.02*(intval($value)-50));
                 $items_entrada = json_decode( stripslashes(file_get_contents("tasas/casas/entrada/50-60.json")) , true);
                 $items_salida = json_decode( stripslashes(file_get_contents("tasas/casas/salida/50-60.json")) , true);
 
                 break;
             case '61_140':
-                $PTL_entrada = 1.2+(0.01*(intval($superficies[$key])-60));
-                $PML_salida = 1.2+(0.01*(intval($superficies[$key])-60));
+                $PTL_entrada = 1.2+(0.01*(intval($value)-60));
+                $PML_salida = 1.2+(0.01*(intval($value)-60));
                 $items_entrada = json_decode( stripslashes(file_get_contents("tasas/casas/entrada/60-140.json")) , true);
                 $items_salida = json_decode( stripslashes(file_get_contents("tasas/casas/salida/60-140.json")) , true);
 
                 break;
             case '141_280':
-                $PTL_entrada = 2+(0.005*(intval($superficies[$key])-140));
-                $PML_salida = 2+(0.005*(intval($superficies[$key])-140));
+                $PTL_entrada = 2+(0.005*(intval($value)-140));
+                $PML_salida = 2+(0.005*(intval($value)-140));
                 $items_entrada = json_decode( stripslashes(file_get_contents("tasas/casas/entrada/140-280.json")) , true);
                 $items_salida = json_decode( stripslashes(file_get_contents("tasas/casas/salida/140-280.json")) , true);
 
@@ -55,8 +56,8 @@ function calculo_casas($rangos,$superficies,$cantidades)
                 break;
         }
         
-        $entrada_resultado[$key] = entrada_casas($PTL_entrada,$items_entrada,$rangos[$key],$cantidades[$key]);
-        $salida_resultado[$key] = salida_casas($PML_salida,$items_salida,$rangos[$key],$cantidades[$key]);
+        $entrada_resultado[$key] = entrada_casas($PTL_entrada,$items_entrada,$rango,$cantidades[$key]);
+        $salida_resultado[$key] = salida_casas($PML_salida,$items_salida,$rango,$cantidades[$key]);
 
     }
     print("<pre>".print_r($entrada_resultado,true)."</pre>");
@@ -68,6 +69,20 @@ function calculo_casas($rangos,$superficies,$cantidades)
    // header("Location: resultado.php"); 
 }
 
+function superficie_rango($superficie)
+{
+    if($superficie <= 50){
+        return '1_50';
+    }elseif($superficie >= 51 && $superficie >= 60){
+        return '51_60';
+    }elseif($superficie >= 61 && $superficie >= 140){
+        return '61_140';
+    }elseif($superficie >= 141 && $superficie >= 280){
+        return '141_280';
+    }elseif($superficie >= 281){
+        return '281_n';
+    }
+}
 
 
 function entrada_casas($PTL_entrada,$items_entrada,$rango,$cantidad)
