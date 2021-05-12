@@ -1,23 +1,16 @@
-<span class="col-md-12 row form-inline">
-    <div class="col-md-3">
-        <label for="tipo" class="form-label"><strong>Rango m<sup>2</sup></strong></label>
-        <select class="form-select" name="rango_sup[]" required>
-            <option value="1_50"> Menor a 50m2</option>
-            <option value="51_60"> 51m2 a 60m2</option>
-            <option value="61_140"> 61m2 a 140m2</option>
-            <option value="141_280"> 141m2 a 280m2 </option>
-            <option value="281_n"> 281 o mas</option>
-        </select>
+<span class="col-md-12 row my-2 ">
+    <div class="col-md-1">
+        <h4><span class="badge bg-secondary"></span></h4>
     </div>
-    <div class="col-md-3">
-        <label for="superficie" class="form-label"><strong>Superficie m<sup>2</sup></strong> (unitaria)</strong></label>
-        <input type="text" class="form-control" name="superficies[]" id="superficie" required>
+    <div class="col-md-3 form-floating ">
+        <input placeholder="Superficie" type="text" class="form-control" name="superficies[]" id="superficie" required>
+        <label class="px-4" for="superficie" >Superficie m<sup>2</sup> </label>
     </div>
-    <div class="col-md-3">
-        <label for="cantidad" class="form-label"><strong>Cantidad Construida</strong></label>
-        <input type="text" class="form-control" name="cantidades[]" id="cantidad" required>
+    <div class="col-md-3 form-floating " >
+        <input placeholder="Cantidad Construida" type="text" class="form-control" name="cantidades[]" id="floatingInput" required>
+        <label class="px-4" for="floatingInput">Cantidad Construida</label>
     </div>
-    <div class="col-md-3  ">
-        <button  class="btn btn-primary delete " type="button">Eliminar</button>
+    <div class="col-md-3 d-flex align-items-end">
+        <button  class="btn btn-danger delete" type="button" title="Borrar este tipo"><i class="bi bi-trash"></i></button>
     </div>
 </span>

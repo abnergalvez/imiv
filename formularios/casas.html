@@ -1,30 +1,25 @@
-<div class="col-md-12">
+<div class="col-md-12 my-2">
     <hr>
-    <button class="col-md-2 btn btn-primary" onclick="agregaTipoCasa()" type="button">Agregar otro Tipo</button>
-
+    <button class="col-md-2 btn btn-success" onclick="agregaTipoCasa()" title="Agregar otro tipo" type="button">Agregar <i class="bi bi-plus-circle"></i></button>
 </div>
 
 
 <br>
+
+
+
 <span id="tipos">
 <span class="col-md-12 row tipo" id="t-1">
-    <div class="col-md-3">
-        <label for="tipo" class="form-label"><strong>Rango m<sup>2</sup></strong></label>
-        <select class="form-select" name="rango_sup[]" required>
-            <option value="1_50"> Menor a 50m2</option>
-            <option value="51_60"> 51m2 a 60m2</option>
-            <option value="61_140"> 61m2 a 140m2</option>
-            <option value="141_280"> 141m2 a 280m2 </option>
-            <option value="281_n"> 281 o mas</option>
-        </select>
+    <div class="col-md-1">
+        <h4><span class="badge bg-secondary">Tipo 1</span></h4>
     </div>
-    <div class="col-md-3">
-        <label for="superficie" class="form-label"><strong>Superficie m<sup>2</sup></strong> (unitaria)</strong></label>
-        <input type="text" class="form-control" name="superficies[]" id="superficie" required>
+    <div class="col-md-3 form-floating ">
+        <input placeholder="Superficie" type="text" class="form-control" name="superficies[]" id="superficie" required>
+        <label class="px-4" for="superficie" >Superficie m<sup>2</sup> </label>
     </div>
-    <div class="col-md-3">
-        <label for="cantidad" class="form-label"><strong>Cantidad Construida</strong></label>
-        <input type="text" class="form-control" name="cantidades[]" id="cantidad" required>
+    <div class="col-md-3 form-floating " >
+        <input placeholder="Cantidad Construida" type="text" class="form-control" name="cantidades[]" id="floatingInput" required>
+        <label class="px-4" for="floatingInput">Cantidad Construida</label>
     </div>
 </span>
 </span>
@@ -45,6 +40,7 @@
                     return "eliminaTipoCasa('t-" + max + "')";
                 });
 
+                $(data2).find(".badge").append("Tipo "+max);
                 $("#tipos").append(data2);
             });
         }
