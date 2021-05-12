@@ -1,13 +1,4 @@
-<div class="col-md-12">
-    <hr>
-    <button class="col-md-2 btn btn-primary" onclick="agregaTipoCasa()" type="button">Agregar otro Tipo</button>
-
-</div>
-
-
-<br>
-<span id="tipos">
-<span class="col-md-12 row tipo" id="t-1">
+<span class="col-md-12 row">
     <div class="col-md-3">
         <label for="tipo" class="form-label"><strong>Rango m<sup>2</sup></strong></label>
         <select class="form-select" name="rango_sup[]" required>
@@ -26,31 +17,8 @@
         <label for="cantidad" class="form-label"><strong>Cantidad Construida</strong></label>
         <input type="text" class="form-control" name="cantidades[]" id="cantidad" required>
     </div>
+    <div class="col-md-3">
+    <label for="cantidad" class="form-label"><strong></strong></label>
+    <button class="btn btn-primary delete" type="button">Eliminar</button>
+    </div>
 </span>
-</span>
-
-<script>
-    function agregaTipoCasa() {
-        console.log('se agrega tipo casa');
-        max = $(".tipo").length + 1;
-        if (max <= 5) {
-            $.get("formularios/tipo_casa.html", function(data) {
-                data2 = $(data).addClass('tipo');
-
-                $(data2).attr('id', function(index) {
-                    return "t-" + max;
-                });
-
-                $(data2).find(".delete").attr('onclick', function(index) {
-                    return "eliminaTipoCasa('t-" + max + "')";
-                });
-
-                $("#tipos").append(data2);
-            });
-        }
-    }
-
-    function eliminaTipoCasa(clase) {
-        $('#' + clase).remove();
-    }
-</script>
