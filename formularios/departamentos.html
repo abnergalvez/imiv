@@ -1,0 +1,50 @@
+<div class="col-md-12 my-2">
+    <hr>
+    <button class="col-md-2 btn btn-success" onclick="agregaTipoDepto()" title="Agregar otro tipo" type="button">Agregar <i class="bi bi-plus-circle"></i></button>
+</div>
+
+<br>
+
+
+<span id="tipos">
+<span class="col-md-12 row tipo" id="t-1">
+    <div class="col-md-1">
+        <h4><span class="badge bg-secondary">Tipo 1</span></h4>
+</div>
+<div class="col-md-3 form-floating ">
+    <input placeholder="Superficie" type="text" class="form-control" name="superficies[]" id="superficie" required>
+    <label class="px-4" for="superficie">Superficie m<sup>2</sup> </label>
+</div>
+<div class="col-md-3 form-floating ">
+    <input placeholder="Cantidad Construida" type="text" class="form-control" name="cantidades[]" id="floatingInput" required>
+    <label class="px-4" for="floatingInput">Cantidad Construida</label>
+</div>
+</span>
+</span>
+
+<script>
+    function agregaTipoDepto() {
+        console.log('se agrega tipo depto');
+        max = $(".tipo").length + 1;
+        if (max <= 5) {
+            $.get("formularios/tipo_depto.html", function(data) {
+                data2 = $(data).addClass('tipo');
+
+                $(data2).attr('id', function(index) {
+                    return "t-" + max;
+                });
+
+                $(data2).find(".delete").attr('onclick', function(index) {
+                    return "eliminaTipoDepto('t-" + max + "')";
+                });
+
+                $(data2).find(".badge").append("Tipo " + max);
+                $("#tipos").append(data2);
+            });
+        }
+    }
+
+    function eliminaTipoDepto(clase) {
+        $('#' + clase).remove();
+    }
+</script>

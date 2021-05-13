@@ -37,14 +37,15 @@
 <div class="container">
   <main>
     <div class="py-5 text-center">
-      <h2>Calculo IMIV - Resultado</h2>
+      <h2>Calculo IMIV - Departamentos - Resultado</h2>
     </div>
+
     <strong>SUMATORIA FLUJO DE ENTRADA PARA:</strong> 
     <ul>
     <?php foreach ($_SESSION['superficies'] as $key => $value) { ?> 
         
           <li>  <?php  echo $_SESSION['cantidades'][$key]; ?> 
-                VIVIENDAS DE <?php  echo $value; ?> MT<sup>2</sup></li> 
+                Construcciones de <?php  echo $value; ?> MT<sup>2</sup></li> 
             <?php } ?> </ul>
     <div class="row g-5">
 
@@ -85,7 +86,7 @@
     <?php foreach ($_SESSION['superficies'] as $key => $value) { ?> 
         
           <li>  <?php  echo $_SESSION['cantidades'][$key]; ?> 
-                VIVIENDAS DE <?php  echo $value; ?> MT<sup>2</sup></li> 
+          Construcciones de <?php  echo $value; ?> MT<sup>2</sup></li> 
             <?php } ?> </ul>
     <div class="row g-5">
 
@@ -120,7 +121,7 @@
           </tbody>
         </table>
 
-          <a href="index.php" class="w-20 btn btn-secondary btn-lg" >Volver</a>
+          <a href="../index.php" class="w-20 btn btn-secondary btn-lg" >Volver</a>
     </div>
 
   </main>

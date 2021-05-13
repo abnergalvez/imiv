@@ -6,6 +6,7 @@ $('#tipo').on('change', function() {
             $('#formulario').load('formularios/casas.html');
             break;
         case 'departamentos':
+            $('#formulario').load('formularios/departamentos.html');
             break;
         case 'c_acogida':
             break;
