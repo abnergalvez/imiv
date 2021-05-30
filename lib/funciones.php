@@ -45,4 +45,23 @@ function superficie_rango($superficie)
     }
 }
 
+function sum_total_flujos($entradas,$salidas)
+{
+    //print("<pre>".print_r($salidas,true)."</pre>");
+    //die;
+    $final = array();
+
+    foreach ($entradas as $key => $val) {
+
+        $final[$key]["viajes_h_por_vivienda"] =  $val["viajes_h_por_vivienda"] + $salidas[$key]["viajes_h_por_vivienda"];
+        $final[$key]["transporte_privado"] = $val["transporte_privado"] + $salidas[$key]["transporte_privado"] ;
+        $final[$key]["transporte_publico"] = $val["transporte_publico"] + $salidas[$key]["transporte_publico"];
+        $final[$key]["peatones_viajes"] = $val["peatones_viajes"] + $salidas[$key]["peatones_viajes"];
+        $final[$key]["ciclos_viajes"] = $val["ciclos_viajes"] + $salidas[$key]["ciclos_viajes"];  
+        
+    }
+
+    return $final;
+
+}
 ?>

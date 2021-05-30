@@ -63,8 +63,11 @@ function calculo_casas($superficies,$cantidades)
     //print("<pre>".print_r(sum_entradas($entrada_resultado),true)."</pre>");
     //print("<pre>".print_r($salida_resultado,true)."</pre>");
     session_start();
-    $_SESSION['resultado_entradas'] = sum_flujos($entrada_resultado);
-    $_SESSION['resultado_salidas'] = sum_flujos($salida_resultado);
+    $sum_entradas = sum_flujos($entrada_resultado);
+    $sum_salidas = sum_flujos($salida_resultado);
+    $_SESSION['resultado_entradas'] = $sum_entradas;
+    $_SESSION['resultado_salidas'] = $sum_salidas;
+    $_SESSION['sumatoria'] = sum_total_flujos($sum_entradas,$sum_salidas);
     $_SESSION['cantidades'] = $cantidades;
     $_SESSION['superficies'] = $superficies;
     header("Location: resultados/casas.php"); 
