@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 // Items en Json Casas.
 // [0] es PM-L
 // [1] es PMd-L
@@ -13,6 +11,7 @@ define('FACTOR_AP',   1.2 );  //Auto Privado
 
 function calculo_casas($superficies,$cantidades)
 {
+
     $entrada_resultado = [];
     $salida_resultado = [];
 
@@ -30,6 +29,7 @@ function calculo_casas($superficies,$cantidades)
                 $PTL_entrada = 1+(0.02*(intval($value)-50));
                 $PML_salida = 1+(0.02*(intval($value)-50));
                 $items_entrada = json_decode( stripslashes(file_get_contents("tasas/casas/entrada/50-60.json")) , true);
+                
                 $items_salida = json_decode( stripslashes(file_get_contents("tasas/casas/salida/50-60.json")) , true);
 
                 break;
@@ -62,7 +62,7 @@ function calculo_casas($superficies,$cantidades)
     }
     //print("<pre>".print_r(sum_entradas($entrada_resultado),true)."</pre>");
     //print("<pre>".print_r($salida_resultado,true)."</pre>");
-    
+    session_start();
     $_SESSION['resultado_entradas'] = sum_flujos($entrada_resultado);
     $_SESSION['resultado_salidas'] = sum_flujos($salida_resultado);
     $_SESSION['cantidades'] = $cantidades;
