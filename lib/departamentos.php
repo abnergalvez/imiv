@@ -63,10 +63,23 @@ function calculo_deptos($superficies,$cantidades)
     //print("<pre>".print_r(sum_entradas($entrada_resultado),true)."</pre>");
     //print("<pre>".print_r($salida_resultado,true)."</pre>");
     
-    $_SESSION['resultado_entradas'] = sum_flujos($entrada_resultado);
-    $_SESSION['resultado_salidas'] = sum_flujos($salida_resultado);
+    session_start();
+    $sum_entradas = sum_flujos($entrada_resultado);
+    $sum_salidas = sum_flujos($salida_resultado);
+    $sumatoria = sum_total_flujos($sum_entradas,$sum_salidas);
+    $maximo_t_privado = buscar_mayor_columna($sumatoria,"transporte_privado");
+    $maximo_t_otros = busca_mayor_otras_columnas($sumatoria); 
+    $_SESSION['resultado_entradas'] = $sum_entradas;
+    $_SESSION['resultado_salidas'] = $sum_salidas;
+    $_SESSION['sumatoria'] = $sumatoria;
     $_SESSION['cantidades'] = $cantidades;
     $_SESSION['superficies'] = $superficies;
+    $_SESSION['max_t_privado'] = $maximo_t_privado;
+    $_SESSION['max_t_otros'] = $maximo_t_otros;
+
+    $_SESSION['imiv_t_privado'] = categoria_imiv_t_privado($maximo_t_privado);
+    $_SESSION['imiv_t_otros'] = categoria_imiv_t_otros($maximo_t_otros);
+    
     header("Location: resultados/departamentos.php"); 
 }
 

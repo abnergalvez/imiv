@@ -64,4 +64,62 @@ function sum_total_flujos($entradas,$salidas)
     return $final;
 
 }
+
+function buscar_mayor_columna($array,$nombre_columna)
+{
+    $mayor = 0;
+    foreach ($array as $key => $val) {
+        if( $mayor == 0){
+            $mayor = $val[$nombre_columna];    
+        }elseif($mayor < $val[$nombre_columna]){
+            $mayor = $val[$nombre_columna];
+        }
+    }
+    return $mayor;
+}
+
+function busca_mayor_otras_columnas($array)
+{
+    $mayor_t_publico = buscar_mayor_columna($array,"transporte_publico");
+    $mayor_peatones = buscar_mayor_columna($array,"peatones_viajes");
+    $mayor_ciclos = buscar_mayor_columna($array,"ciclos_viajes");
+    $mayores = array($mayor_t_publico,$mayor_peatones, $mayor_ciclos);   
+    return max ($mayores);
+}
+
+function categoria_imiv_t_privado($n_viajes)
+{
+    if($n_viajes < 20){
+        return "No requiere estudio";
+    }
+    if($n_viajes >= 20 && $n_viajes <= 80){
+        return "Básico";
+    }
+    if($n_viajes > 80 && $n_viajes <= 250){
+        return "Intermedio";
+    }
+    if($n_viajes > 250){
+        return "Mayor";
+    }
+
+}
+
+function categoria_imiv_t_otros($n_viajes)
+{
+    if($n_viajes < 40){
+        return "No requiere estudio";
+    }
+    if($n_viajes >= 40 && $n_viajes <= 160){
+        return "Básico";
+    }
+    if($n_viajes > 160 && $n_viajes <= 500){
+        return "Intermedio";
+    }
+    if($n_viajes > 500){
+        return "Mayor";
+    }
+}
+
+
+
 ?>

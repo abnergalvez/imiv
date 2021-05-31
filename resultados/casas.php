@@ -44,7 +44,7 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        FLUJOS DE ENTRADA
+        FLUJOS DE ENTRADA (clic para ver detalles)
       </button>
     </h2>
     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -93,10 +93,11 @@
       </div>
     </div>
   </div>
+
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-      FLUJOS DE SALIDA
+      FLUJOS DE SALIDA (clic para ver detalles)
       </button>
     </h2>
     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
@@ -145,12 +146,16 @@
       </div>
     </div>
   </div>
-</div>
 
-    
-    <br>         
-    <strong>SUMATORIA ENTRADAS Y SALIDAS (TOTAL)</strong> 
-    <ul>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseTwo">
+      SUMATORIA  (clic para ver detalles)
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+      <ul>
     <?php foreach ($_SESSION['superficies'] as $key => $value) { ?> 
         
           <li>  <?php  echo $_SESSION['cantidades'][$key]; ?> 
@@ -188,8 +193,36 @@
             
           </tbody>
         </table>
+    </div>
 
-          <a href="../index.php" class="w-20 btn btn-secondary btn-lg" >Volver</a>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+        <br>
+
+       <h4>El valor mas alto de los periodos en viajes de <span class="badge bg-dark">transporte privado</span> es:</h4>
+       <p><span class="badge bg-secondary">
+       <?php
+          echo $_SESSION['max_t_privado'];
+        ?></span>
+        Estudio IMIV requerido:  <span class="badge bg-primary"><?php echo $_SESSION['imiv_t_privado']; ?> </span>
+       </p>
+       <h4>El valor mas alto de los periodos en viajes de <span class="badge bg-dark">otros transportes</span> es:</h4>
+       <p><span class="badge bg-secondary">
+       <?php
+          echo $_SESSION['max_t_otros'];
+        ?></span>
+        Estudio IMIV requerido: <span class="badge bg-primary"><?php echo $_SESSION['imiv_t_otros']; ?> </span>
+       </p>      
+        
+
+          <a href="../index.php" class="w-100 btn btn-secondary btn-lg" >Volver</a>
     </div>
 
 
