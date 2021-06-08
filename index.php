@@ -38,12 +38,12 @@ header('Access-Control-Allow-Origin: *');
         <div class="row g-5">
             <div class="col-md-7 col-lg-12">
         <h4 class="mb-3"> Datos a ingresar</h4>
-        <form class="needs-validation" action="calculos.php" method="post">
+        <form class="needs-validation" id="formulario_inicial" action="calculos.php" name="formulario_inicial" method="post">
           <div class="row g-3">
                 <div class="col-md-4">
                     <label for="tipo" class="form-label"><strong>Tipo Proyecto</strong></label>
-                    <select class="form-select" id="tipo" name="tipo" required>
-                        <option value="">Escoja una opcion...</option>
+                    <select class="form-select" id="tipo" name="tipo" autocomplete="off" required>
+                        <option value="" selected>Escoja una opcion...</option>
                         <option value="casas">Casas</option>
                         <option value="departamentos">Departamentos</option>
                         <option value="c_acogida">Casas de Acogida</option>
@@ -73,7 +73,7 @@ header('Access-Control-Allow-Origin: *');
           </div>
 
           <hr class="my-4">
-          <button type="subit" class="w-100 btn btn-primary btn-lg" >Calcular</button>
+          <a href="javascript:enviarDatos();" class="w-100 btn btn-primary btn-lg" >Calcular</a>
         </form>
       </div>
     </div>
@@ -89,6 +89,7 @@ header('Access-Control-Allow-Origin: *');
   </footer>
 </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js" ></script>
       <script src="app.js"></script>
     </body>
 </html>

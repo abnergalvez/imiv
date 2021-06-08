@@ -67,3 +67,11 @@ $('#tipo').on('change', function() {
 function ocultar_subproyectos() {
     $('#comercio_tipos').css('display', 'none');
 }
+
+function enviarDatos(){
+    document.formulario_inicial.submit();  
+}
+
+Window.onload = function(){
+    formulario_inicial.reset();
+}
