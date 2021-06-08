@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin: *');
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,10 @@ header('Access-Control-Allow-Origin: *');
         <main>
             <div class="py-5 text-center">
                 <h2>Calculo IMIV</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan nec nunc et semper. Maecenas pellentesque maximus dolor vitae posuere. Vivamus turpis lectus, molestie vel erat vitae, semper rutrum libero. </p>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                  Suspendisse accumsan nec nunc et semper. Maecenas pellentesque maximus dolor 
+                  vitae posuere. Vivamus turpis lectus, molestie vel erat vitae, semper rutrum libero. 
+                </p>
             </div>
             <div class="">
                 <h6>Conceptos</h6>
@@ -38,7 +41,7 @@ header('Access-Control-Allow-Origin: *');
         <form class="needs-validation" action="calculos.php" method="post">
           <div class="row g-3">
                 <div class="col-md-4">
-                    <label for="tipo" class="form-label"><strong>Tipo Construccion/Vivienda</strong></label>
+                    <label for="tipo" class="form-label"><strong>Tipo Proyecto</strong></label>
                     <select class="form-select" id="tipo" name="tipo" required>
                         <option value="">Escoja una opcion...</option>
                         <option value="casas">Casas</option>
@@ -57,8 +60,14 @@ header('Access-Control-Allow-Origin: *');
                         <option value="social">Social</option>
                     </select>
                 </div>
-                
+                <div id="sub_proyecto" class="col-md-6" style="display:none;">
+                  <?php
+                  include('formularios/subproyectos/comercio.php');
+                  ?>
+          
+               </div>    
           </div>
+
           <div id="formulario" class="row">
           
           </div>

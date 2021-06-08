@@ -23,6 +23,16 @@ switch ($tipo) {
         
         //header('Location:  resultado.php');
         break;
+
+    case 'comercio':
+            require 'lib/comercio.php';
+            $superficie = $_POST['superficie']; //array
+            $cantidad = $_POST['cantidad']; //array
+            $comercio_tipo = $_POST['comercio_tipo']; //array
+            $resultado = calculo_comercio($superficie,$cantidad,$comercio_tipo);
+            
+            //header('Location:  resultado.php');
+            break;    
     
     default:
         # code...

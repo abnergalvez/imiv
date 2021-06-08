@@ -27,7 +27,7 @@
         console.log('se agrega tipo depto');
         max = $(".tipo").length + 1;
         if (max <= 5) {
-            $.get("formularios/tipo_depto.html", function(data) {
+            $.get("formularios/repeticiones/tipo_depto.html", function(data) {
                 data2 = $(data).addClass('tipo');
 
                 $(data2).attr('id', function(index) {
